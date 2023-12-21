@@ -3,9 +3,7 @@ from pygame.locals import *
 
 pygame.init()
 
-#Open Pygame window 
-screen = pygame.display.set_mode((640, 480),) #add RESIZABLE or FULLSCREEN
-#Title
+screen = pygame.display.set_mode((640, 480),)
 pygame.display.set_caption("dark tetris")
 color=pygame.color.THECOLORS["black"]
 
@@ -155,11 +153,11 @@ def lose(table,limit_pos):
 
 def break_line(table):
     x=220
-    y=40#+(20*4)
+    y=40
     segement=0
     line=[]
     broken_line=0
-    for i in range(20):  #(400-(4*20))/20=16
+    for i in range(20): 
         x=220;y+=20;segement=0;line=[]
         for j in range(10):
             for square in table:
@@ -187,11 +185,10 @@ pygame.key.set_repeat(400, 30)
 
 while True:
     
-    #loop speed limitation
-    #30 frames per second is enought
+
     pygame.time.Clock().tick(30)
     
-    for event in pygame.event.get():    #wait for events
+    for event in pygame.event.get(): 
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
